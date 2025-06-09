@@ -1,0 +1,12 @@
+HistoricoDesastres,PopulacaoAfetada,InfraestruturaCritica,TipoDesastre,NivelRisco
+5,1000,True,Terremoto,Alto
+2,200,False,Inundacao,Medio
+1,50,False,Incendio,Baixo
+8,5000,True,Furacao,Muito Alto
+3,300,True,Tsunami,Alto
+0,10,False,Seca,Baixo
+6,2000,True,Erupcao Vulcanica,Alto
+4,800,False,Deslizamento,Medio
+7,3500,True,Tempestade,Muito Alto
+1,150,False,Nevasca,Baixo
+

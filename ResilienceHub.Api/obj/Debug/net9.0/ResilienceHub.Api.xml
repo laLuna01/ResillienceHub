@@ -1,0 +1,322 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ResilienceHub.Api</name>
+    </assembly>
+    <members>
+        <member name="T:ResilienceHub.Api.Controllers.AbrigosController">
+            <summary>
+            Controlador para gerenciar operações relacionadas a abrigos.
+            </summary>
+        </member>
+        <member name="M:ResilienceHub.Api.Controllers.AbrigosController.#ctor(ResilienceHub.Infrastructure.Interfaces.IAbrigoRepository)">
+            <summary>
+            Construtor do AbrigoController.
+            </summary>
+            <param name="abrigoRepository">Repositorio de abrigo.</param>
+        </member>
+        <member name="M:ResilienceHub.Api.Controllers.AbrigosController.GetAbrigos">
+            <summary>
+            Busca todos os abrigos no sistema.
+            </summary>
+            <returns>Retorna os abrigos cadastrados.</returns>
+        </member>
+        <member name="M:ResilienceHub.Api.Controllers.AbrigosController.PostAbrigo(ResilienceHub.Core.Models.Abrigo)">
+            <summary>
+            Insere um novo abrigo no sistema.
+            </summary>
+            <param name="abrigo">Dados do abrigo a ser inserido.</param>
+            <returns>Um IActionResult indicando o sucesso ou falha da operação.</returns>
+        </member>
+        <member name="M:ResilienceHub.Api.Controllers.AbrigosController.PutAbrigo(System.Int32,ResilienceHub.Core.Models.Abrigo)">
+            <summary>
+            Atualiza um abrigo existente no sistema.
+            </summary>
+            <param name="id">ID do abrigo a ser atualizado.</param>
+            <param name="abrigo">Novos dados do abrigo.</param>
+            <returns>Um IActionResult indicando o sucesso ou falha da operação.</returns>
+        </member>
+        <member name="M:ResilienceHub.Api.Controllers.AbrigosController.DeleteAbrigo(System.Int32)">
+            <summary>
+            Exclui um abrigo do sistema.
+            </summary>
+            <param name="id">ID do abrigo a ser excluído.</param>
+            <returns>Um IActionResult indicando o sucesso ou falha da operação.</returns>
+        </member>
+        <member name="M:ResilienceHub.Api.Controllers.AbrigosController.GetAbrigo(System.Int32)">
+            <summary>
+            Obtém um abrigo pelo seu ID.
+            </summary>
+            <param name="id">ID do abrigo.</param>
+            <returns>O abrigo correspondente ou NotFound se não for encontrado.</returns>
+        </member>
+        <member name="T:ResilienceHub.Api.Controllers.AlertaController">
+            <summary>
+            Controlador para gerenciar operações relacionadas a alertas.
+            </summary>
+        </member>
+        <member name="M:ResilienceHub.Api.Controllers.AlertaController.#ctor(ResilienceHub.Infrastructure.Interfaces.IAlertaRepository,ResilienceHub.Infrastructure.Services.MLService)">
+            <summary>
+            Construtor do AlertasController.
+            </summary>
+            <param name="alertaRepository">Repositório de alerta.</param>
+        </member>
+        <member name="M:ResilienceHub.Api.Controllers.AlertaController.GetAlertas">
+            <summary>
+            Busca todos os alertas no sistema.
+            </summary>
+            <returns>Retorna os alertas cadastrados.</returns>
+        </member>
+        <member name="M:ResilienceHub.Api.Controllers.AlertaController.GetAlerta(System.Int32)">
+            <summary>
+            Obtém um alerta pelo seu ID.
+            </summary>
+            <param name="id">ID do alerta.</param>
+            <returns>O alerta correspondente ou NotFound se não for encontrado.</returns>
+        </member>
+        <member name="M:ResilienceHub.Api.Controllers.AlertaController.PostAlerta(ResilienceHub.Core.Models.Alerta)">
+            <summary>
+            Insere um novo alerta no sistema.
+            </summary>
+            <param name="alerta">Dados do alerta a ser inserido.</param>
+            <returns>Um IActionResult indicando o sucesso ou falha da operação.</returns>
+        </member>
+        <member name="M:ResilienceHub.Api.Controllers.AlertaController.PutAlerta(System.Int32,ResilienceHub.Core.Models.Alerta)">
+            <summary>
+            Atualiza um alerta existente no sistema.
+            </summary>
+            <param name="id">ID do alerta a ser atualizado.</param>
+            <param name="alerta">Novos dados do alerta.</param>
+            <returns>Um IActionResult indicando o sucesso ou falha da operação.</returns>
+        </member>
+        <member name="M:ResilienceHub.Api.Controllers.AlertaController.PatchAlertaStatus(System.Int32,System.String)">
+            <summary>
+            Atualiza apenas o status de um alerta.
+            </summary>
+            <param name="id">ID do alerta.</param>
+            <param name="status">Novo status.</param>
+            <returns>Um IActionResult indicando o sucesso ou falha da operação.</returns>
+        </member>
+        <member name="M:ResilienceHub.Api.Controllers.AlertaController.DeleteAlerta(System.Int32)">
+            <summary>
+            Exclui um alerta do sistema.
+            </summary>
+            <param name="id">ID do alerta a ser excluído.</param>
+            <returns>Um IActionResult indicando o sucesso ou falha da operação.</returns>
+        </member>
+        <member name="M:ResilienceHub.Api.Controllers.AlertaController.GetAlertasAtivos">
+            <summary>
+            Busca alertas ativos no sistema.
+            </summary>
+            <returns>Retorna os alertas ativos.</returns>
+        </member>
+        <member name="M:ResilienceHub.Api.Controllers.AlertaController.GetAlertasPorTipo(System.String)">
+            <summary>
+            Busca alertas por tipo.
+            </summary>
+            <param name="tipo">Tipo do alerta para filtrar.</param>
+            <returns>Retorna os alertas do tipo especificado.</returns>
+        </member>
+        <member name="M:ResilienceHub.Api.Controllers.AlertaController.PredictMl(ResilienceHub.Infrastructure.Services.DisasterData)">
+            <summary>
+            Realiza uma previsão de alerta usando o modelo ML.NET.
+            </summary>
+            <param name="input">Dados de entrada para a previsão do ML.</param>
+            <returns>O resultado da previsão do ML.</returns>
+        </member>
+        <member name="T:ResilienceHub.Api.Controllers.CheckInController">
+            <summary>
+            Controlador para gerenciar operações de check-in e check-out em abrigos
+            </summary>
+        </member>
+        <member name="M:ResilienceHub.Api.Controllers.CheckInController.#ctor(ResilienceHub.Infrastructure.Interfaces.IAbrigoUsuarioRepository,ResilienceHub.Infrastructure.Interfaces.IAbrigoRepository,ResilienceHub.Infrastructure.Interfaces.IUsuarioRepository)">
+            <summary>
+            Construtor do CheckInController
+            </summary>
+            <param name="abrigoUsuarioRepository">Repositório de relacionamento abrigo-usuário</param>
+            <param name="abrigoRepository">Repositório de abrigos</param>
+            <param name="usuarioRepository">Repositório de usuários</param>
+        </member>
+        <member name="M:ResilienceHub.Api.Controllers.CheckInController.GetRegistros">
+            <summary>
+            Lista todos os registros de check-in/check-out
+            </summary>
+            <returns>Lista de todos os registros de check-in/check-out</returns>
+        </member>
+        <member name="M:ResilienceHub.Api.Controllers.CheckInController.GetRegistrosPorAbrigo(System.Int32)">
+            <summary>
+            Lista registros de check-in ativos por abrigo
+            </summary>
+            <param name="abrigoId">ID do abrigo</param>
+            <returns>Lista de registros ativos no abrigo especificado</returns>
+        </member>
+        <member name="M:ResilienceHub.Api.Controllers.CheckInController.GetRegistrosPorUsuario(System.Int32)">
+            <summary>
+            Lista registros de check-in por usuário
+            </summary>
+            <param name="usuarioId">ID do usuário</param>
+            <returns>Lista de registros do usuário especificado</returns>
+        </member>
+        <member name="M:ResilienceHub.Api.Controllers.CheckInController.PostCheckIn(ResilienceHub.Core.Models.CheckInRequest)">
+            <summary>
+            Realiza o check-in de um usuário em um abrigo
+            </summary>
+            <param name="checkInRequest">Dados do check-in contendo AbrigoId e UsuarioId</param>
+            <returns>Registro de check-in criado</returns>
+        </member>
+        <member name="M:ResilienceHub.Api.Controllers.CheckInController.PutCheckOut(System.Int32)">
+            <summary>
+            Realiza o check-out de um usuário de um abrigo
+            </summary>
+            <param name="registroId">ID do registro de check-in</param>
+            <returns>Registro de check-in atualizado com data de check-out</returns>
+        </member>
+        <member name="M:ResilienceHub.Api.Controllers.CheckInController.GetRegistro(System.Int32)">
+            <summary>
+            Obtém um registro específico de check-in/check-out
+            </summary>
+            <param name="id">ID do registro</param>
+            <returns>Registro completo com informações de abrigo e usuário</returns>
+        </member>
+        <member name="M:ResilienceHub.Api.Controllers.CheckInController.MapToDTO(ResilienceHub.Core.Models.AbrigoUsuario)">
+            <summary>
+            Mapeia um objeto AbrigoUsuario para AbrigoUsuarioDTO
+            </summary>
+            <param name="registro">Objeto AbrigoUsuario a ser mapeado</param>
+            <returns>Objeto AbrigoUsuarioDTO mapeado</returns>
+        </member>
+        <member name="M:ResilienceHub.Api.Controllers.CheckInController.AddLinks(ResilienceHub.Core.Models.AbrigoUsuarioDTO)">
+            <summary>
+            Adiciona links HATEOAS a um DTO de AbrigoUsuario
+            </summary>
+            <param name="registroDTO">DTO que receberá os links</param>
+        </member>
+        <member name="T:ResilienceHub.Api.Controllers.RecursosController">
+            <summary>
+            Controlador para gerenciar operações relacionadas a recursos.
+            </summary>
+        </member>
+        <member name="M:ResilienceHub.Api.Controllers.RecursosController.#ctor(ResilienceHub.Infrastructure.Interfaces.IRecursoRepository)">
+            <summary>
+            Construtor do RecursosController.
+            </summary>
+            <param name="recursoRepository">Repositório de recurso.</param>
+        </member>
+        <member name="M:ResilienceHub.Api.Controllers.RecursosController.GetRecursos">
+            <summary>
+            Busca todos os recursos no sistema.
+            </summary>
+            <returns>Retorna os recursos cadastrados.</returns>
+        </member>
+        <member name="M:ResilienceHub.Api.Controllers.RecursosController.GetRecurso(System.Int32)">
+            <summary>
+            Obtém um recurso pelo seu ID.
+            </summary>
+            <param name="id">ID do recurso.</param>
+            <returns>O recurso correspondente ou NotFound se não for encontrado.</returns>
+        </member>
+        <member name="M:ResilienceHub.Api.Controllers.RecursosController.GetRecursosPorTipo(System.String)">
+            <summary>
+            Busca recursos por tipo.
+            </summary>
+            <param name="tipo">Tipo do recurso para filtrar.</param>
+            <returns>Retorna os recursos do tipo especificado.</returns>
+        </member>
+        <member name="M:ResilienceHub.Api.Controllers.RecursosController.GetRecursosVencidos">
+            <summary>
+            Busca recursos vencidos.
+            </summary>
+            <returns>Retorna os recursos com data de validade expirada.</returns>
+        </member>
+        <member name="M:ResilienceHub.Api.Controllers.RecursosController.GetRecursosBaixoEstoque(System.Int32)">
+            <summary>
+            Busca recursos com baixo estoque.
+            </summary>
+            <param name="quantidadeMinima">Quantidade mínima para considerar baixo estoque (padrão: 5).</param>
+            <returns>Retorna os recursos com quantidade igual ou abaixo do limite.</returns>
+        </member>
+        <member name="M:ResilienceHub.Api.Controllers.RecursosController.PostRecurso(ResilienceHub.Core.Models.Recurso)">
+            <summary>
+            Insere um novo recurso no sistema.
+            </summary>
+            <param name="recurso">Dados do recurso a ser inserido.</param>
+            <returns>Um IActionResult indicando o sucesso ou falha da operação.</returns>
+        </member>
+        <member name="M:ResilienceHub.Api.Controllers.RecursosController.PutRecurso(System.Int32,ResilienceHub.Core.Models.Recurso)">
+            <summary>
+            Atualiza um recurso existente no sistema.
+            </summary>
+            <param name="id">ID do recurso a ser atualizado.</param>
+            <param name="recurso">Novos dados do recurso.</param>
+            <returns>Um IActionResult indicando o sucesso ou falha da operação.</returns>
+        </member>
+        <member name="M:ResilienceHub.Api.Controllers.RecursosController.PatchAjustarQuantidade(System.Int32,System.Int32)">
+            <summary>
+            Ajusta a quantidade de um recurso.
+            </summary>
+            <param name="id">ID do recurso.</param>
+            <param name="quantidade">Valor a ser adicionado/subtraído (use negativo para diminuir).</param>
+            <returns>Um IActionResult indicando o sucesso ou falha da operação.</returns>
+        </member>
+        <member name="M:ResilienceHub.Api.Controllers.RecursosController.DeleteRecurso(System.Int32)">
+            <summary>
+            Exclui um recurso do sistema.
+            </summary>
+            <param name="id">ID do recurso a ser excluído.</param>
+            <returns>Um IActionResult indicando o sucesso ou falha da operação.</returns>
+        </member>
+        <member name="T:ResilienceHub.Api.Controllers.UsuariosController">
+            <summary>
+            Controlador para gerenciar operações relacionadas a usuários.
+            </summary>
+        </member>
+        <member name="M:ResilienceHub.Api.Controllers.UsuariosController.#ctor(ResilienceHub.Infrastructure.Interfaces.IUsuarioRepository)">
+            <summary>
+            Construtor do UsuariosController.
+            </summary>
+            <param name="usuarioRepository">Repositório de usuário.</param>
+        </member>
+        <member name="M:ResilienceHub.Api.Controllers.UsuariosController.GetUsuarios">
+            <summary>
+            Busca todos os usuários no sistema.
+            </summary>
+            <returns>Retorna os usuários cadastrados.</returns>
+        </member>
+        <member name="M:ResilienceHub.Api.Controllers.UsuariosController.GetUsuario(System.Int32)">
+            <summary>
+            Obtém um usuário pelo seu ID.
+            </summary>
+            <param name="id">ID do usuário.</param>
+            <returns>O usuário correspondente ou NotFound se não for encontrado.</returns>
+        </member>
+        <member name="M:ResilienceHub.Api.Controllers.UsuariosController.GetUsuarioByCpf(System.String)">
+            <summary>
+            Obtém um usuário pelo CPF.
+            </summary>
+            <param name="cpf">CPF do usuário.</param>
+            <returns>O usuário correspondente ou NotFound se não for encontrado.</returns>
+        </member>
+        <member name="M:ResilienceHub.Api.Controllers.UsuariosController.PostUsuario(ResilienceHub.Core.Models.Usuario)">
+            <summary>
+            Insere um novo usuário no sistema.
+            </summary>
+            <param name="usuario">Dados do usuário a ser inserido.</param>
+            <returns>Um IActionResult indicando o sucesso ou falha da operação.</returns>
+        </member>
+        <member name="M:ResilienceHub.Api.Controllers.UsuariosController.PutUsuario(System.Int32,ResilienceHub.Core.Models.Usuario)">
+            <summary>
+            Atualiza um usuário existente no sistema.
+            </summary>
+            <param name="id">ID do usuário a ser atualizado.</param>
+            <param name="usuario">Novos dados do usuário.</param>
+            <returns>Um IActionResult indicando o sucesso ou falha da operação.</returns>
+        </member>
+        <member name="M:ResilienceHub.Api.Controllers.UsuariosController.DeleteUsuario(System.Int32)">
+            <summary>
+            Exclui um usuário do sistema.
+            </summary>
+            <param name="id">ID do usuário a ser excluído.</param>
+            <returns>Um IActionResult indicando o sucesso ou falha da operação.</returns>
+        </member>
+    </members>
+</doc>

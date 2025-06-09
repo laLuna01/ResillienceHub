@@ -1,0 +1,17 @@
+/home/luana/Área de trabalho/ResilienceHub/ResilienceHub.Infrastructure/bin/Debug/net9.0/ResilienceHub.Infrastructure.deps.json
+/home/luana/Área de trabalho/ResilienceHub/ResilienceHub.Infrastructure/bin/Debug/net9.0/ResilienceHub.Infrastructure.runtimeconfig.json
+/home/luana/Área de trabalho/ResilienceHub/ResilienceHub.Infrastructure/bin/Debug/net9.0/ResilienceHub.Infrastructure.dll
+/home/luana/Área de trabalho/ResilienceHub/ResilienceHub.Infrastructure/bin/Debug/net9.0/ResilienceHub.Infrastructure.pdb
+/home/luana/Área de trabalho/ResilienceHub/ResilienceHub.Infrastructure/bin/Debug/net9.0/ResilienceHub.Core.dll
+/home/luana/Área de trabalho/ResilienceHub/ResilienceHub.Infrastructure/bin/Debug/net9.0/ResilienceHub.Core.pdb
+/home/luana/Área de trabalho/ResilienceHub/ResilienceHub.Infrastructure/obj/Debug/net9.0/ResilienceHub.Infrastructure.csproj.AssemblyReference.cache
+/home/luana/Área de trabalho/ResilienceHub/ResilienceHub.Infrastructure/obj/Debug/net9.0/ResilienceHub.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+/home/luana/Área de trabalho/ResilienceHub/ResilienceHub.Infrastructure/obj/Debug/net9.0/ResilienceHub.Infrastructure.AssemblyInfoInputs.cache
+/home/luana/Área de trabalho/ResilienceHub/ResilienceHub.Infrastructure/obj/Debug/net9.0/ResilienceHub.Infrastructure.AssemblyInfo.cs
+/home/luana/Área de trabalho/ResilienceHub/ResilienceHub.Infrastructure/obj/Debug/net9.0/ResilienceHub.Infrastructure.csproj.CoreCompileInputs.cache
+/home/luana/Área de trabalho/ResilienceHub/ResilienceHub.Infrastructure/obj/Debug/net9.0/Resilien.11C49410.Up2Date
+/home/luana/Área de trabalho/ResilienceHub/ResilienceHub.Infrastructure/obj/Debug/net9.0/ResilienceHub.Infrastructure.dll
+/home/luana/Área de trabalho/ResilienceHub/ResilienceHub.Infrastructure/obj/Debug/net9.0/refint/ResilienceHub.Infrastructure.dll
+/home/luana/Área de trabalho/ResilienceHub/ResilienceHub.Infrastructure/obj/Debug/net9.0/ResilienceHub.Infrastructure.pdb
+/home/luana/Área de trabalho/ResilienceHub/ResilienceHub.Infrastructure/obj/Debug/net9.0/ResilienceHub.Infrastructure.genruntimeconfig.cache
+/home/luana/Área de trabalho/ResilienceHub/ResilienceHub.Infrastructure/obj/Debug/net9.0/ref/ResilienceHub.Infrastructure.dll

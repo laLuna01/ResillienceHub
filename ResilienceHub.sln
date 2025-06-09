@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResilienceHub.Api", "ResilienceHub.Api\ResilienceHub.Api.csproj", "{C987A7B5-5208-41CA-9BC3-ED37235F33B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResilienceHub.Core", "ResilienceHub.Core\ResilienceHub.Core.csproj", "{419A0BA8-0B6F-4B77-B5FF-E299699A22C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResilienceHub.Infrastructure", "ResilienceHub.Infrastructure\ResilienceHub.Infrastructure.csproj", "{ACDE58A7-0B21-4B3B-B159-A1E0497DC23F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C987A7B5-5208-41CA-9BC3-ED37235F33B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C987A7B5-5208-41CA-9BC3-ED37235F33B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C987A7B5-5208-41CA-9BC3-ED37235F33B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C987A7B5-5208-41CA-9BC3-ED37235F33B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{419A0BA8-0B6F-4B77-B5FF-E299699A22C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{419A0BA8-0B6F-4B77-B5FF-E299699A22C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{419A0BA8-0B6F-4B77-B5FF-E299699A22C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{419A0BA8-0B6F-4B77-B5FF-E299699A22C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACDE58A7-0B21-4B3B-B159-A1E0497DC23F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACDE58A7-0B21-4B3B-B159-A1E0497DC23F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACDE58A7-0B21-4B3B-B159-A1E0497DC23F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACDE58A7-0B21-4B3B-B159-A1E0497DC23F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

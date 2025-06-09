@@ -1,0 +1,12 @@
+/home/luana/Área de trabalho/ResilienceHub/ResilienceHub.Core/bin/Debug/net9.0/ResilienceHub.Core.deps.json
+/home/luana/Área de trabalho/ResilienceHub/ResilienceHub.Core/bin/Debug/net9.0/ResilienceHub.Core.dll
+/home/luana/Área de trabalho/ResilienceHub/ResilienceHub.Core/bin/Debug/net9.0/ResilienceHub.Core.pdb
+/home/luana/Área de trabalho/ResilienceHub/ResilienceHub.Core/obj/Debug/net9.0/ResilienceHub.Core.GeneratedMSBuildEditorConfig.editorconfig
+/home/luana/Área de trabalho/ResilienceHub/ResilienceHub.Core/obj/Debug/net9.0/ResilienceHub.Core.AssemblyInfoInputs.cache
+/home/luana/Área de trabalho/ResilienceHub/ResilienceHub.Core/obj/Debug/net9.0/ResilienceHub.Core.AssemblyInfo.cs
+/home/luana/Área de trabalho/ResilienceHub/ResilienceHub.Core/obj/Debug/net9.0/ResilienceHub.Core.csproj.CoreCompileInputs.cache
+/home/luana/Área de trabalho/ResilienceHub/ResilienceHub.Core/obj/Debug/net9.0/ResilienceHub.Core.dll
+/home/luana/Área de trabalho/ResilienceHub/ResilienceHub.Core/obj/Debug/net9.0/refint/ResilienceHub.Core.dll
+/home/luana/Área de trabalho/ResilienceHub/ResilienceHub.Core/obj/Debug/net9.0/ResilienceHub.Core.pdb
+/home/luana/Área de trabalho/ResilienceHub/ResilienceHub.Core/obj/Debug/net9.0/ref/ResilienceHub.Core.dll
+/home/luana/Área de trabalho/ResilienceHub/ResilienceHub.Core/obj/Debug/net9.0/ResilienceHub.Core.csproj.AssemblyReference.cache

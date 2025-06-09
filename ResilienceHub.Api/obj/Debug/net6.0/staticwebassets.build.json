@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "IGr0fnFTeimAaqIVGu5P1P4D6GGZR6JLdaMMMSCe2VQ=",
+  "Source": "ResilienceHub.Api",
+  "BasePath": "_content/ResilienceHub.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
