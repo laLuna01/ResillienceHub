@@ -8,6 +8,7 @@ namespace ResilienceHub.Infrastructure.Repositories;
 public class RecursoRepository : IRecursoRepository {
     
     private readonly IDbConnection _connection;
+    private IRecursoRepository _recursoRepositoryImplementation;
 
     public RecursoRepository(IDbConnection connection)
     {
@@ -94,25 +95,9 @@ public class RecursoRepository : IRecursoRepository {
         return recursos;
     }
 
-    public async Task<IEnumerable<Recurso>> GetRecursosBaixoEstoque(int quantidadeMinima = 5)
+    public Task<IEnumerable<Recurso>> GetRecursosBaixoEstoque(int quantidadeMinima = 5)
     {
-        var recursos = new List<Recurso>();
-        
-        using (var cmd = _connection.CreateCommand() as OracleCommand)
-        {
-            cmd.CommandText = "SELECT * FROM RECURSO WHERE QUANTIDADE <= :quantidadeMinima";
-            cmd.Parameters.Add(new OracleParameter("quantidadeMinima", quantidadeMinima));
-            
-            using (var reader = await cmd.ExecuteReaderAsync())
-            {
-                while (await reader.ReadAsync())
-                {
-                    recursos.Add(MapToRecurso(reader));
-                }
-            }
-        }
-        
-        return recursos;
+        return _recursoRepositoryImplementation.GetRecursosBaixoEstoque(quantidadeMinima);
     }
 
     public async Task<Recurso> CreateRecurso(Recurso recurso)
@@ -121,15 +106,14 @@ public class RecursoRepository : IRecursoRepository {
         {
             cmd.CommandText = @"
                 INSERT INTO RECURSO (
-                    TIPO, DESCRICAO, QUANTIDADE, VALIDADE, UNIDADE_MEDIDA
+                    TIPO, DESCRICAO, VALIDADE, UNIDADE_MEDIDA
                 ) VALUES (
-                    :tipo, :descricao, :quantidade, :validade, :unidadeMedida
+                    :tipo, :descricao, :validade, :unidadeMedida
                 )
                 RETURNING RECURSO_ID INTO :id";
 
             cmd.Parameters.Add(new OracleParameter("tipo", recurso.Tipo));
             cmd.Parameters.Add(new OracleParameter("descricao", recurso.Descricao ?? (object)DBNull.Value));
-            cmd.Parameters.Add(new OracleParameter("quantidade", recurso.Quantidade));
             cmd.Parameters.Add(new OracleParameter("validade", recurso.Validade ?? (object)DBNull.Value));
             cmd.Parameters.Add(new OracleParameter("unidadeMedida", recurso.UnidadeMedida));
 
@@ -151,14 +135,12 @@ public class RecursoRepository : IRecursoRepository {
                 UPDATE RECURSO SET
                     TIPO = :tipo,
                     DESCRICAO = :descricao,
-                    QUANTIDADE = :quantidade,
                     VALIDADE = :validade,
                     UNIDADE_MEDIDA = :unidadeMedida
                 WHERE RECURSO_ID = :id";
 
             cmd.Parameters.Add(new OracleParameter("tipo", recurso.Tipo));
             cmd.Parameters.Add(new OracleParameter("descricao", recurso.Descricao ?? (object)DBNull.Value));
-            cmd.Parameters.Add(new OracleParameter("quantidade", recurso.Quantidade));
             cmd.Parameters.Add(new OracleParameter("validade", recurso.Validade ?? (object)DBNull.Value));
             cmd.Parameters.Add(new OracleParameter("unidadeMedida", recurso.UnidadeMedida));
             cmd.Parameters.Add(new OracleParameter("id", recurso.RecursoId));
@@ -167,16 +149,9 @@ public class RecursoRepository : IRecursoRepository {
         }
     }
 
-    public async Task AjustarQuantidadeRecurso(int id, int quantidade)
+    public Task AjustarQuantidadeRecurso(int id, int quantidade)
     {
-        using (var cmd = _connection.CreateCommand() as OracleCommand)
-        {
-            cmd.CommandText = "UPDATE RECURSO SET QUANTIDADE = QUANTIDADE + :quantidade WHERE RECURSO_ID = :id";
-            cmd.Parameters.Add(new OracleParameter("quantidade", quantidade));
-            cmd.Parameters.Add(new OracleParameter("id", id));
-
-            await cmd.ExecuteNonQueryAsync();
-        }
+        return _recursoRepositoryImplementation.AjustarQuantidadeRecurso(id, quantidade);
     }
 
     public async Task DeleteRecurso(int id)
@@ -197,7 +172,6 @@ public class RecursoRepository : IRecursoRepository {
             RecursoId = Convert.ToInt32(reader["RECURSO_ID"]),
             Tipo = reader["TIPO"].ToString(),
             Descricao = reader["DESCRICAO"] != DBNull.Value ? reader["DESCRICAO"].ToString() : null,
-            Quantidade = Convert.ToInt32(reader["QUANTIDADE"]),
             Validade = reader["VALIDADE"] != DBNull.Value ? Convert.ToDateTime(reader["VALIDADE"]) : (DateTime?)null,
             UnidadeMedida = reader["UNIDADE_MEDIDA"].ToString()
         };

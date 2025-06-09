@@ -13,10 +13,6 @@ namespace ResilienceHub.Core.Models
         [StringLength(200, ErrorMessage = "A descrição não pode exceder 200 caracteres.")]
         public string Descricao { get; set; }
 
-        [Required(ErrorMessage = "A quantidade é obrigatória.")]
-        [Range(0, int.MaxValue, ErrorMessage = "A quantidade não pode ser negativa.")]
-        public int Quantidade { get; set; }
-
         public DateTime? Validade { get; set; }
 
         [StringLength(20, ErrorMessage = "A unidade de medida não pode exceder 20 caracteres.")]
@@ -28,7 +24,6 @@ namespace ResilienceHub.Core.Models
         public int RecursoId { get; set; }
         public string Tipo { get; set; }
         public string Descricao { get; set; }
-        public int Quantidade { get; set; }
         public DateTime? Validade { get; set; }
         public string UnidadeMedida { get; set; }
     }

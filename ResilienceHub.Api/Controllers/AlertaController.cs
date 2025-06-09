@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.RateLimiting;
 using ResilienceHub.Infrastructure.Interfaces;
-using ResilienceHub.Infrastructure.Services;
 
 namespace ResilienceHub.Api.Controllers
 {
@@ -17,16 +16,14 @@ namespace ResilienceHub.Api.Controllers
     public class AlertaController : ControllerBase
     {
         private readonly IAlertaRepository _alertaRepository;
-        private readonly MLService _mlService;
 
         /// <summary>
         /// Construtor do AlertasController.
         /// </summary>
         /// <param name="alertaRepository">Repositório de alerta.</param>
-        public AlertaController(IAlertaRepository alertaRepository, MLService mlService)
+        public AlertaController(IAlertaRepository alertaRepository)
         {
             _alertaRepository = alertaRepository;
-            _mlService = mlService;
         }
         
         /// <summary>
@@ -245,29 +242,6 @@ namespace ResilienceHub.Api.Controllers
             }
 
             return Ok(alertasDTO);
-        }
-        
-        /// <summary>
-        /// Realiza uma previsão de alerta usando o modelo ML.NET.
-        /// </summary>
-        /// <param name="input">Dados de entrada para a previsão do ML.</param>
-        /// <returns>O resultado da previsão do ML.</returns>
-        [HttpPost("predict-ml")]
-        public IActionResult PredictMl([FromBody] DisasterData input)
-        {
-            try
-            {
-                var prediction = _mlService.Predict(input);
-                return Ok(prediction);
-            }
-            catch (InvalidOperationException ex)
-            {
-                return BadRequest(new { message = ex.Message });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { message = "Erro ao realizar previsão com ML.NET: " + ex.Message });
-            }
         }
 
         private void AddAlertaLinks(AlertaDTO alertaDTO)

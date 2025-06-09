@@ -9,7 +9,6 @@ using Microsoft.OpenApi.Models;
 using MongoDB.Driver;
 using ResilienceHub.Infrastructure.Interfaces;
 using ResilienceHub.Infrastructure.Repositories;
-using ResilienceHub.Infrastructure.Services;
 
 var builder = WebApplication.CreateBuilder(args);
    builder.Services.AddControllers().AddNewtonsoftJson();
@@ -74,10 +73,6 @@ builder.Services.AddScoped<IAlertaRepository, AlertaRepository>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<IRecursoRepository, RecursoRepository>();
 builder.Services.AddScoped<IAbrigoUsuarioRepository, AbrigoUsuarioRepository>();
-
-
-// Register MLService for dependency injection
-builder.Services.AddSingleton<MLService>();
 
 var app = builder.Build();
 

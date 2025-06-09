@@ -37,7 +37,6 @@ public class RecursosController : ControllerBase
             RecursoId = r.RecursoId,
             Tipo = r.Tipo,
             Descricao = r.Descricao,
-            Quantidade = r.Quantidade,
             Validade = r.Validade,
             UnidadeMedida = r.UnidadeMedida
         }).ToList();
@@ -70,7 +69,6 @@ public class RecursosController : ControllerBase
             RecursoId = recurso.RecursoId,
             Tipo = recurso.Tipo,
             Descricao = recurso.Descricao,
-            Quantidade = recurso.Quantidade,
             Validade = recurso.Validade,
             UnidadeMedida = recurso.UnidadeMedida
         };
@@ -94,7 +92,6 @@ public class RecursosController : ControllerBase
             RecursoId = r.RecursoId,
             Tipo = r.Tipo,
             Descricao = r.Descricao,
-            Quantidade = r.Quantidade,
             Validade = r.Validade,
             UnidadeMedida = r.UnidadeMedida
         }).ToList();
@@ -120,34 +117,6 @@ public class RecursosController : ControllerBase
             RecursoId = r.RecursoId,
             Tipo = r.Tipo,
             Descricao = r.Descricao,
-            Quantidade = r.Quantidade,
-            Validade = r.Validade,
-            UnidadeMedida = r.UnidadeMedida
-        }).ToList();
-
-        foreach (var recurso in recursosDTO)
-        {
-            AddRecursoLinks(recurso);
-        }
-
-        return Ok(recursosDTO);
-    }
-
-    /// <summary>
-    /// Busca recursos com baixo estoque.
-    /// </summary>
-    /// <param name="quantidadeMinima">Quantidade mínima para considerar baixo estoque (padrão: 5).</param>
-    /// <returns>Retorna os recursos com quantidade igual ou abaixo do limite.</returns>
-    [HttpGet("baixo-estoque", Name = "GetRecursosBaixoEstoque")]
-    public async Task<ActionResult<IEnumerable<RecursoDTO>>> GetRecursosBaixoEstoque(int quantidadeMinima = 5)
-    {
-        var recursos = await _recursoRepository.GetRecursosBaixoEstoque(quantidadeMinima);
-        var recursosDTO = recursos.Select(r => new RecursoDTO
-        {
-            RecursoId = r.RecursoId,
-            Tipo = r.Tipo,
-            Descricao = r.Descricao,
-            Quantidade = r.Quantidade,
             Validade = r.Validade,
             UnidadeMedida = r.UnidadeMedida
         }).ToList();
@@ -180,7 +149,6 @@ public class RecursosController : ControllerBase
             RecursoId = createdRecurso.RecursoId,
             Tipo = createdRecurso.Tipo,
             Descricao = createdRecurso.Descricao,
-            Quantidade = createdRecurso.Quantidade,
             Validade = createdRecurso.Validade,
             UnidadeMedida = createdRecurso.UnidadeMedida
         };
@@ -211,19 +179,6 @@ public class RecursosController : ControllerBase
 
         await _recursoRepository.UpdateRecurso(recurso);
 
-        return NoContent();
-    }
-
-    /// <summary>
-    /// Ajusta a quantidade de um recurso.
-    /// </summary>
-    /// <param name="id">ID do recurso.</param>
-    /// <param name="quantidade">Valor a ser adicionado/subtraído (use negativo para diminuir).</param>
-    /// <returns>Um IActionResult indicando o sucesso ou falha da operação.</returns>
-    [HttpPatch("{id}/ajustar-quantidade", Name = "AjustarQuantidadeRecurso")]
-    public async Task<IActionResult> PatchAjustarQuantidade(int id, [FromBody] int quantidade)
-    {
-        await _recursoRepository.AjustarQuantidadeRecurso(id, quantidade);
         return NoContent();
     }
 
